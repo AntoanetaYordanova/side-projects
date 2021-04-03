@@ -12,3 +12,4 @@ function isIndexCorrect(arr, index){
 let isCorrect = isIndexCorrect(arrTwo, 5);
 
 console.log(isCorrect);
+console.log(isIndexCorrect(arrOne, 4));
