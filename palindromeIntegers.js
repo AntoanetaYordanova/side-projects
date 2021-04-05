@@ -16,7 +16,7 @@ function palindromeIntegers(arrInput){
                 console.log(false);
             }
         }
-        currentNum = currentNum.join('')
+        currentNum = Number(currentNum.join(''));
         areEqual(currentNum, tempNum);
 
     }
