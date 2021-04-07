@@ -30,6 +30,7 @@ function passwordValidator(passInput){
 
     }
 
+
     if(!isSixChar) {
         console.log('Password must be between 6 and 10 characters');
     } 
