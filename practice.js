@@ -1,14 +1,4 @@
+let stringOne = 'Toni';
+let stringTwo = 'toni';
 
-let theList = [];
-
-function isInTheList(a){
-    if(theList.indexOf(a) !== -1){
-        return true;
-    } else {
-        return false;
-    }
-    
-}
-
-
-console.log(isInTheList('Toni'));
+stringOne > stringTwo ? console.log(true) : console.log(false);
