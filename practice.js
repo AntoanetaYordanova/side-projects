@@ -1,4 +1,8 @@
-let stringOne = 'Toni';
-let stringTwo = 'toni';
+let myObj = {
+    one : 1,
+    two: 2
+}
 
-stringOne > stringTwo ? console.log(true) : console.log(false);
+myObj['three'] = 3;
+
+console.log(myObj);
