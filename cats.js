@@ -18,6 +18,8 @@ function cat(arrInput){
         cat.sayMeow();
 
     }
+
+    console.log();
 }
 
 cat(['Mellow 2', 'Tom 5'])
