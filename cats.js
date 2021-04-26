@@ -1,5 +1,4 @@
-function cat(arrInput){
-    let cats = [];
+function cat(arrInput){  
 
     class Cat {
         constructor(catName, catAge){
@@ -19,7 +18,6 @@ function cat(arrInput){
 
     }
 
-    console.log();
 }
 
 cat(['Mellow 2', 'Tom 5'])
