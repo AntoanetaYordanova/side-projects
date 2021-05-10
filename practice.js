@@ -1,8 +1,8 @@
-let myObj = {
-    one : 1,
-    two: 2
+function doIt() {
+    doIt.objname = {};
+    var someObject = "objname";
+    doIt[someObject].value = "value";    
+    console.log(doIt.objname);
 }
 
-myObj['three'] = 3;
-
-console.log(myObj);
+doIt()
