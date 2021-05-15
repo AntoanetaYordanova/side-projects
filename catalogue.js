@@ -1,10 +1,30 @@
 function catalogue(inputArr) {
-    let catalogueArr = [];
-
+    let productsObj = {};
+    
     for(let product of inputArr){
         let [name, price] = product.split(' : ');
-        
+        let letter = name[0];
+        let keys = Object.keys(productsObj);
+
+        if(!keys.includes(letter)){
+            productsObj[name[0]] = [product];
+        }  else{
+            productsObj[name[0]].push(product);
+        }
     }
+
+    let propOfProducts = Object.keys(productsObj) .sort();
+
+    for(prop of propOfProducts){
+        let currentArr = productsObj[prop];
+        currentArr.sort();
+        console.log(prop);
+        for(let product of currentArr){
+            let [name, price] = product.split(' : ');
+            console.log(`  ${name}: ${price}`);
+        }
+    }
+
 }
 
 
