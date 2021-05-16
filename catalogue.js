@@ -1,32 +1,25 @@
 function catalogue(inputArr) {
-    let productsObj = {};
-    
-    for(let product of inputArr){
-        let [name, price] = product.split(' : ');
-        let letter = name[0];
-        let keys = Object.keys(productsObj);
+    let printCatalogue = {};
 
-        if(!keys.includes(letter)){
-            productsObj[name[0]] = [product];
-        }  else{
-            productsObj[name[0]].push(product);
+    for(let currentArr of inputArr){
+        let letter = currentArr[0];
+        if(!Object.keys(printCatalogue).includes(letter)){
+            printCatalogue[letter] = [currentArr];
+        } else {
+            printCatalogue[letter].push(currentArr);
         }
     }
 
-    let propOfProducts = Object.keys(productsObj) .sort();
-
-    for(prop of propOfProducts){
-        let currentArr = productsObj[prop];
-        currentArr.sort();
+    let keysOfCatalogue = Object.keys(printCatalogue) .sort();
+    for(let prop of keysOfCatalogue){
         console.log(prop);
-        for(let product of currentArr){
-            let [name, price] = product.split(' : ');
+        let printArr = printCatalogue[prop].sort();
+        for(let currnetPrint of printArr){
+            let [name, price] = currnetPrint.split(' : ');
             console.log(`  ${name}: ${price}`);
         }
     }
-
 }
-
 
 catalogue(['Appricot : 20.4',
     'Fridge : 1500',
