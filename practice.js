@@ -1,1 +1,0 @@
-let myArr = ['one', 'two', {Sword : 'newItem'}]
