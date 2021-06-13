@@ -1,0 +1,59 @@
+@import url('https://use.fontawesome.com/releases/v5.15.3/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*, 
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    background: #234465;
+    color: white;
+    width: 220px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 6px;
+    height: 95px;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+    box-shadow: 0px 3px 8px -2px #000000;
+}
+
+.icon-container {
+    color: white;
+    background: #fff;
+    color: #234465;
+    border: 3px solid #234465;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 3px 8px 3px 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    left: 77px;
+    font-size: 35px;
+}
+
+.text-container {
+    margin-bottom: 50px;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
