@@ -1,0 +1,64 @@
+@import url('https://use.fontawesome.com/releases/v5.15.3/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.one{
+    background: pink;
+    /* flex-grow: 1; */
+}
+
+.two {
+    background: rgb(226, 62, 62);
+    /* flex-grow: 2; */
+}
+
+.three {
+    background: rgb(135, 125, 223);
+    /* flex-grow: 3; */
+}
+
+.four {
+    background: rgb(113, 221, 180);
+    /* flex-grow: 2; */
+}
+
+.five {
+    background: rgb(216, 199, 121);
+    /* flex-grow: 1; */
+}
+
+.six {
+    background: rgb(255, 43, 255);
+    /* flex-grow: 2; */
+}
+
+.seven {
+    background: rgb(178, 212, 139);
+    /* flex-grow: 7; */
+}
+
+.eight {
+    background: rgb(89, 255, 247);
+    /* flex-grow: 2; */
+}
+
+div {
+    display:  flex;
+    max-width: 60%;
+    flex-wrap: wrap;
+
+}
+
+
+article {
+    box-sizing: border-box;
+    border: darkcyan 1px solid;
+    padding: 10px;
+    margin: 10px;
+    max-width: 30%;
+}
+

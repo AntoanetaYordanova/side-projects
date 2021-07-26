@@ -10,10 +10,11 @@ function catalogue(inputArr) {
         }
     }
 
-    let keysOfCatalogue = Object.keys(printCatalogue) .sort();
+    let keysOfCatalogue = Object.keys(printCatalogue) 
+    keysOfCatalogue = keysOfCatalogue.sort((a, b) => a.localeCompare(b));
     for(let prop of keysOfCatalogue){
         console.log(prop);
-        let printArr = printCatalogue[prop].sort();
+        let printArr = printCatalogue[prop].sort((a, b) => a.localeCompare(b));
         for(let currnetPrint of printArr){
             let [name, price] = currnetPrint.split(' : ');
             console.log(`  ${name}: ${price}`);
