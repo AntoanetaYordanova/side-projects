@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function collectItems(){
+    let listItems = document.getElementsByTagName('li');
+    let elementsText = [...listItems].map(e => e.textContent);
+    let inputVar = document.getElementById("result");
+    inputVar.value = elementsText.join('\n');
+}
+    </script>
+</head>
+<body>
+    <ul>
+        <li>first item</li>
+        <li>second item</li>
+        <li>third item</li>
+    </ul>
+    <textarea name="" cols="30" rows="10" id="result"></textarea>
+    <!-- <input type="text" name="" id="result"> -->
+    <button onclick="collectItems()">Collect</button>
+</body>
+</html>
