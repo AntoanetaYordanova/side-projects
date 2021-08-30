@@ -1,3 +1,4 @@
 function generateReport() {
-    //TODO
+    let checkbox = document.querySelectorAll('tr th input')[0];
+    
 }

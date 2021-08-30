@@ -12,10 +12,12 @@ function solve() {
             string += sentence + '.';
         }
 
+        let printString = ``
         if(counter == 3 || i == text.length - 1) {
             outputElement.innerHTML += `<p>${string}</p>`;
             counter = 0;
             string = '';
         }
+        
     }
 }
