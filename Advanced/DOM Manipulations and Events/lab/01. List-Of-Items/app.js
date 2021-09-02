@@ -4,5 +4,5 @@ function addItem() {
     let liElement = document.createElement('li');
     liElement.textContent = newItemText;
     ulElement.appendChild(liElement);
-    
+    document.getElementById('newItemText').value = '';
 }
