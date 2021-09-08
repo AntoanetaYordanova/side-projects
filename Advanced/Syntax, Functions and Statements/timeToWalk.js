@@ -1,11 +1,12 @@
 function timeToWalk(steps, stepMeters, kmPerHour) {
-    let mPerHour = kmPerHour * 1000;
+    let mPerHour = kmPerHour * 1000 / 3600; 
     let totalMeters = steps * stepMeters;
-    let hours = totalMeters / mPerHour;
-    let add = Math.floor(totalMeters / 500) / 60;
-    hours += add;
-    console.log(hours);
-   
+    let add = Math.floor(totalMeters / 500) * 60;
+    let time = totalMeters / mPerHour + add;
+    
+    const seconds = Math.floor(time / 3600);
+    
+
 }
 
 timeToWalk(4000, 0.60, 5);

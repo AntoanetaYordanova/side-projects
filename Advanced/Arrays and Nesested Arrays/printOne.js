@@ -1,0 +1,3 @@
+function printOne(params) {
+    
+}
