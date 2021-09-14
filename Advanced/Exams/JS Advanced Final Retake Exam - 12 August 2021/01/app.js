@@ -24,51 +24,52 @@ function solve() {
     function addData(ev) {
         let model = modelInput.value;
         let description = descriptionInput.value;
-        let year = Number(yearInput.value).toFixed(2);
-        let price = Number(priceInput.value).toFixed(2);
-        ev.preventDefault();
+        let year = yearInput.value;
+        let price = priceInput.value;
 
-        const trInfo = document.createElement('tr');
-        trInfo.classList.add('info');
-        const tdModel = document.createElement('td');
-        tdModel.textContent = model;
-        trInfo.appendChild(tdModel);
-        const tdPrice = document.createElement('td');
-        tdPrice.textContent = price;
-        trInfo.appendChild(tdPrice);
-        const tdButtons = document.createElement('td');
-        const buttonMore = document.createElement('button');
-        let obj = {
-            button : buttonMore,
-            isOn : false
+        if(model && description && isPositiveNum(year) && isPositiveNum(price)) {
+            const trInfo = document.createElement('tr');
+            trInfo.classList.add('info');
+            const tdModel = document.createElement('td');
+            tdModel.textContent = model;
+            trInfo.appendChild(tdModel);
+            const tdPrice = document.createElement('td');
+            tdPrice.textContent = Number(price).toFixed(2);
+            trInfo.appendChild(tdPrice);
+            const tdButtons = document.createElement('td');
+            const buttonMore = document.createElement('button');
+    
+            let obj = {
+                button : buttonMore,
+                isOn : false
+            }
+            buttonsOnArr.push(obj);
+            buttonMore.classList.add('moreBtn');
+            buttonMore.textContent = 'More Info';
+            buttonMore.addEventListener('click', showText);
+            tdButtons.appendChild(buttonMore);
+            const buttonBuy = document.createElement('button');
+            buttonBuy.addEventListener('click', buy); 
+            buttonBuy.classList.add('buyBtn');
+            buttonBuy.textContent = 'Buy it';
+            tdButtons.appendChild(buttonBuy);
+            trInfo.appendChild(tdButtons);
+            tbody.appendChild(trInfo);
+            const trHidden = document.createElement('tr');
+            trHidden.classList.add('hide');
+            const tdYear = document.createElement('td');
+            tdYear.textContent = 'Year: \n' + year;
+            trHidden.appendChild(tdYear);
+            const tdDescription =  document.createElement('td');
+            tdDescription.colSpan = '3';
+            tdDescription.textContent = 'Description: ' +  description;
+            trHidden.appendChild(tdDescription);
+            tbody.appendChild(trHidden);
+            inputFields.forEach(input => input.value = '');
         }
-        buttonsOnArr.push(obj);
-        buttonMore.classList.add('moreBtn');
-        buttonMore.textContent = 'More Info';
-        buttonMore.addEventListener('click', showText);
-        tdButtons.appendChild(buttonMore);
-        const buttonBuy = document.createElement('button');
-        buttonBuy.addEventListener('click', buy); 
-        buttonBuy.classList.add('buyBtn');
-        buttonBuy.textContent = 'Buy it';
-        tdButtons.appendChild(buttonBuy);
-        trInfo.appendChild(tdButtons);
-        tbody.appendChild(trInfo);
-        const trHidden = document.createElement('tr');
-        trHidden.classList.add('hide');
-        const tdYear = document.createElement('td');
-        tdYear.textContent = 'Year: \n' + year;
-        trHidden.appendChild(tdYear);
-        const tdDescription =  document.createElement('td');
-        tdDescription.colSpan = '3';
-        tdDescription.textContent = 'Description: ' +  description;
-        trHidden.appendChild(tdDescription);
-        tbody.appendChild(trHidden);
-        inputFields.forEach(input => input.value = '');
+      
     }
 
-
-    let isDisplayed = false;
     function showText (ev) {
         let currentHideRow = ev.target.parentElement.parentElement.nextElementSibling;
         let currentHideButton = ev.target.parentElement.querySelector('button');
@@ -91,5 +92,12 @@ function solve() {
         let priceElement = ev.target.parentElement.parentElement.querySelector('td:nth-child(2)');
         let newPrice = (Number(priceElement.textContent) + Number(totalPriceOutput.textContent)).toFixed(2);
         totalPriceOutput.textContent = newPrice;
+    }
+
+    function isPositiveNum(num) {
+        if(num) {
+            return  Number(num) >= 0 ? true : false;
+        }
+     
     }
 }
