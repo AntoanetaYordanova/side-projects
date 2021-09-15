@@ -1,12 +1,20 @@
 function solve() {
   const [inputTextArea, outputTextArea] = [...document.querySelectorAll('textarea')];
   const [generateButton, buyButton] = [...document.querySelectorAll('button')];
+  let furniture = [];
 
-  generateButton.addEventListener('click', addData);
 
-  function addData() {
+  generateButton.addEventListener('click', () => {
     let datas = JSON.parse(inputTextArea.value);
     datas.forEach(data => {
+      let item =  addData(data);
+      furniture.push(item);
+      document.querySelector('tbody').appendChild(item.row); 
+    }); 
+  });
+
+  function addData(data) {
+   
       const img = document.createElement('img');
       img.setAttribute('src', data.img);
       const checkbox = document.createElement('input');
@@ -19,8 +27,19 @@ function solve() {
       createEl('td', checkbox)
       )
       
-      document.querySelector('tbody').appendChild(row)
-    });
+      return {
+        row,
+        isChecked,
+        returnData
+      }
+
+      function isChecked() {
+        return checkbox.checked;
+      }
+
+      function returnData(){
+        return data;
+      }
   }
 
   function createEl(type, ...content) {
@@ -34,5 +53,23 @@ function solve() {
 
       return result;
   }
-  console.log();
+
+  buyButton.addEventListener('click', () => {
+    let averageDecFactor = [];
+    let sum = 0;
+    let boughtItems = [];
+
+    furniture.forEach(f => {
+      if(f.isChecked()) {
+        let data = f.returnData();
+        averageDecFactor.push(data.decFactor);
+        sum += Number(data.price);
+        boughtItems.push(data.name);
+      }
+    })
+
+    averageDecFactor = averageDecFactor.map(Number) .reduce((a, b) => a + b, 0) / averageDecFactor.length;
+
+    outputTextArea.textContent = `Bought furniture: ${boughtItems.join(', ')} \nTotal price: ${sum.toFixed(2)} \nAverage decoration factor: ${averageDecFactor}`
+  })
 }
