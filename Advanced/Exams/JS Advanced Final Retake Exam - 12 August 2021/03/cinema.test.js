@@ -48,6 +48,10 @@ describe('cinema tests', () => {
             expect(cinema.swapSeatsInHall(10, 0)).to.equal('Unsuccessful change of seats in the hall.');
         });
 
+        it('check for return by too small num input', () => {
+            expect(cinema.swapSeatsInHall(0, 21)).to.equal('Unsuccessful change of seats in the hall.');
+        });
+
         it('check for return by not integer num input', () => {
             expect(cinema.swapSeatsInHall(1.1, 21)).to.equal('Unsuccessful change of seats in the hall.');
         });

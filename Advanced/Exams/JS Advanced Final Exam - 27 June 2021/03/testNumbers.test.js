@@ -45,7 +45,7 @@ describe('testNumber tests', () => {
 
         it('checks if trows error with unvalid input', () => {
            assert.throw(() => testNumbers.numberChecker('a'), 'The input is not a number!');
-           expect(testNumbers.numberChecker('a')).to.throw('The input is not a number!');
+           expect(() => testNumbers.numberChecker('a')).to.throw('The input is not a number!');
         });
     });
 
