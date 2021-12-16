@@ -1,7 +1,7 @@
 const formidable = require('formidable');
 const database = require('../util/database');
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   const form = new formidable.IncomingForm();
 
   form.parse(req, (err, fields) => {

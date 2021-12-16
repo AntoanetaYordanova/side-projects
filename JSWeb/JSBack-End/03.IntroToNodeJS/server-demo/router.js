@@ -20,7 +20,7 @@ function registerHandler (method, url, handler) {
         handlers[url] = methods;
     }
 
-    handlers[method][url] = handler;
+    handlers[url][method] = handler;
 }
 
 function defaultHandler(req, res) {
