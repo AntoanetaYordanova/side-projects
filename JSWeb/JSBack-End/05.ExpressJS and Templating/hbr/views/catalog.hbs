@@ -1,0 +1,10 @@
+<h3>Book catalog</h3>
+{{#if books}}
+    <ul>
+        {{#each books}}
+        <li>{{> book}}</li>
+        {{/each}}
+    </ul>
+{{else}}
+    <span>No books in database</span>
+{{/if}}

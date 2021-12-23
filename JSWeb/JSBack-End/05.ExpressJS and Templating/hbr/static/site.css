@@ -1,0 +1,39 @@
+html{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+body {
+    background-color: rgb(191, 209, 216);
+    margin: 0;
+}
+
+#container {
+    width : 980px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+nav::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a {
+    display: inline-block;
+    background-color: rgb(197, 190, 190);
+    margin: 0 4px;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: 0.5s;
+    color: black;
+}
+
+nav a:hover{
+    background-color: rgb(173, 197, 206);
+}
+
+main {
+    padding: 0 32px;
+}

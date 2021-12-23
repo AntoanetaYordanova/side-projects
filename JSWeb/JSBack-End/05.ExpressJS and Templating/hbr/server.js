@@ -1,33 +1,31 @@
 const express = require('express');
 const hbs = require('express-handlebars');
+const home = require('./controllers/home');
+const catalog = require('./controllers/catalog');
+const storage = require('./util/storage');
 
-const app = express();
+async function start() {
+  const app = express();
+  const port = 3000;
 
-app.engine('.hbs', hbs.engine({
-    extname : '.hbs'    
-}));
+  app.use('/static', express.static('static'));
 
-app.set('view engine', '.hbs');
+  app.engine(
+    '.hbs',
+    hbs.engine({
+      extname: '.hbs',
+    })
+  );
 
-app.get('/', (req, res) => {
-    const employees = {
-        title : 'Home page',
-        employees : [
-        {
-            name : 'Peter',
-            age : 23
-        },
-        {
-            name : 'Toni',
-            age : 24
-        },
-        {
-            name : 'Andi',
-            age : 25
-        }
-    ]}
-    res.render('home', employees);
-});
+  app.set('view engine', '.hbs');
 
+  app.use(await storage());
 
-app.listen(3000);
+  app.get('/', home);
+
+  app.use('/catalog', catalog);
+
+  app.listen(port, () => console.log('Server listening on port' + port));
+}
+
+start();
