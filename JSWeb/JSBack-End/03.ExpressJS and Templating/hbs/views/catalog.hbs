@@ -1,8 +1,9 @@
 <h3>Book catalog</h3>
+<a class="createLink" href="/catalog/create">Create Book</a>
 {{#if books}}
     <ul>
         {{#each books}}
-        <li>{{> book}}</li>
+            {{> book}}
         {{/each}}
     </ul>
 {{else}}

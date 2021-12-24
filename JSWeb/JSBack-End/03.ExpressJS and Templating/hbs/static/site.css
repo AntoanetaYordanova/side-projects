@@ -13,6 +13,11 @@ body {
     margin: 0 auto;
     background-color: white;
 }
+a{
+    text-decoration: none;
+    color: black;
+
+}
 
 nav::after{
     content: "";
@@ -25,9 +30,7 @@ nav a {
     background-color: rgb(197, 190, 190);
     margin: 0 4px;
     padding: 4px 8px;
-    text-decoration: none;
     transition: 0.5s;
-    color: black;
 }
 
 nav a:hover{
@@ -36,4 +39,28 @@ nav a:hover{
 
 main {
     padding: 0 32px;
+}
+
+.book{
+    background-color: rgb(197, 190, 190);
+    margin: 6px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+}
+
+.book a {
+    background-color: #fff;
+    border: 1px solid rgb(54, 47, 47);
+    border-radius: 5px;
+    padding: 1px 3px;
+    margin: 3px;
+}
+
+a.createLink{
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+a.createLink:hover{
+    color: rgb(75, 61, 61);
 }

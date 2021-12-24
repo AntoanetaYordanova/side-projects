@@ -1,3 +1,4 @@
+const { info } = require('console');
 const fs = require('fs/promises');
 
 let data = {};
@@ -15,7 +16,12 @@ async function init() {
 }
 
 function getAll() {
-    return Object.values(data);
+    return Object.entries(data)
+    .map(([id, info]) => ({
+        id,
+        title : info.title,
+        author : info.author
+    }));
 }
 
 function getById(id) {

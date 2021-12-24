@@ -2,11 +2,12 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const home = require('./controllers/home');
 const catalog = require('./controllers/catalog');
+const about = require('./controllers/about');
 const storage = require('./util/storage');
 
 async function start() {
   const app = express();
-  const port = 3000;
+  const port = 5000;
 
   app.use('/static', express.static('static'));
 
@@ -21,9 +22,9 @@ async function start() {
 
   app.use(await storage());
 
-  app.get('/', home);
-
   app.use('/catalog', catalog);
+  app.use('/about', about);
+  app.get('/', home);
 
   app.listen(port, () => console.log('Server listening on port' + port));
 }
