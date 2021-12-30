@@ -7,7 +7,7 @@ module.exports = {
             name : req.body.name,
             description : req.body.description,
             imageUrl : req.body.imageUrl,
-            difficulty : req.body.difficultyLevel
+            difficulty : Number(req.body.difficultyLevel)
         }
         await req.storage.create(cube);
         res.redirect('/');

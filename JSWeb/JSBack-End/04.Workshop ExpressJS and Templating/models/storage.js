@@ -29,8 +29,25 @@ async function init() {
 }
 
 
-async function getAll() {
-  return Object.entries(data).map(([id, v]) => Object.assign({}, { id }, v));
+async function getAll(query) {
+  let cubes = Object
+  .entries(data)
+  .map(([id, v]) => Object.assign({}, { id }, v));
+  console.log(cubes);
+
+  if(query.search) {
+    cubes = cubes.filter(c => c.name.toLowerCase().includes(query.search.toLowerCase()));
+  }
+
+  if(query.from) {
+    cubes = cubes.filter(c => c.difficulty >= Number(query.from));
+  }
+
+  if(query.to) {
+    cubes = cubes.filter(c => c.difficulty <= Number(query.to));
+  }
+
+  return  cubes;
 }
 
 async function getByID(id) {
@@ -42,7 +59,7 @@ async function create(cube) {
   data[id] = cube;
 
   try {
-    fs.writeFile('./models/data.json', JSON.stringify(data, null, 2));
+    fs.writeFile('./models/data.json', JSON.stringify(data, null, 2 ));
     console.log('>>> created new record');
   } catch (err) {
       console.error('Error writing in database');
