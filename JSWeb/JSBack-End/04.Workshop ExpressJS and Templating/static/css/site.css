@@ -90,6 +90,19 @@ p.name {
     border-bottom: 1px solid #2b415433;
 }
 
+
+button:hover {
+    background-color: #0B2133;
+    color: white;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: underline;
+    color: white;
+    text-transform: uppercase;
+}
+
 button, main a.btn {
     border: none;
     padding: 8px;
@@ -105,17 +118,6 @@ button, main a.btn {
     color: white;
 }
 
-button:hover {
-    background-color: #0B2133;
-    color: white;
-    cursor: pointer;
-}
-
-a {
-    text-decoration: underline;
-    color: white;
-    text-transform: uppercase;
-}
 
 div.details {
     display: block;
