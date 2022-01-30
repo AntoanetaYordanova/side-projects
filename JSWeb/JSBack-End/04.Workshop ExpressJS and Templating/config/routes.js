@@ -4,7 +4,6 @@ const about = require('../controllers/about');
 const { notFound } = require('../controllers/notFound');
 const { details } = require('../controllers/details');
 
-
 module.exports = (app) => {
     app.get('/', main);
 

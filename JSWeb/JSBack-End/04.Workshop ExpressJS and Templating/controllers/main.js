@@ -1,6 +1,6 @@
 module.exports = async (req, res) => {
-    const cubes = await req.storage.getAllCubes();
-
+    const cubes = await req.storage.getAllCubes(req.query);
+    console.log(req.query);
     res.render('index', {
         title : 'Catalog',
         cubes
