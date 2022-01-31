@@ -7,13 +7,21 @@ const init = () => {
       getAllCubes,
       createCube,
       findById,
+      edit,
+      deleteCube,
+      postComment
     };
     next();
   };
 };
 
 async function findById(id) {
-  return Cube.findById(id);
+  const cube = await Cube.findById(id);
+  if(cube) {
+    return cube;
+  } else {
+    return undefined;
+  }
 }
 
 async function getAllCubes(searchParams) {
@@ -42,8 +50,32 @@ async function createCube(cube) {
   await newCube.save();
 }
 
+async function edit(id, data) {
+  const cube = await Cube.findById(id);
+
+  if(!cube) {
+    throw new ReferenceError('No such cube in database!');
+  }
+
+  Object.assign(cube, data);
+  await cube.save();
+}
+
+async function deleteCube(id) {
+  await Cube.findByIdAndRemove(id);
+}
+
+async function postComment(data, id) {
+  const cube = await findById(id);
+
+  const newComment = new Comment(data);
+
+  cube.comments.push(newComment);
+  console.log(cube);
+  cube.save();
+  newComment.save();
+}
+
 module.exports = {
-  init,
-  createCube,
-  getAllCubes,
+  init
 };

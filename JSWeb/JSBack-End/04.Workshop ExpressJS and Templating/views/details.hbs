@@ -6,4 +6,15 @@
   </p>
   <p><span>Difficulty level:</span> {{cube.difficulty}}</p>
   <a class='btn' href='/'>Back</a>
+  <a class='btn' href='/edit/{{cube._id}}'>Edit</a>
+  <a class='btn' href='/delete/{{cube._id}}'>Delete</a>
+  <div class='details'>
+    <form action='/comment/{{cube._id}}' method='POST'>
+      <span>Name:</span>
+      <input type="text" name="name">
+      <span>Comment:</span>
+      <textarea name="content"  cols="30" rows="10"></textarea>
+      <input type="submit" value="Post comment">
+    </form>
+  </div>
 </div>
