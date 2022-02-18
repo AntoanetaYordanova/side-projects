@@ -1,0 +1,10 @@
+{{#if errors}}
+  <div class='error-container'>
+    {{#each errors}}
+      <p>{{msg}}</p>
+    {{/each}}
+  </div>
+{{/if}}
+<main>
+  {{{body}}}
+</main>
