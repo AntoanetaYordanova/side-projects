@@ -1,3 +1,5 @@
+//TODO: Check required redirect dor guest and user
+
 function isUser() {
   return function (req, res, next) {
     if (req.session.user) {
