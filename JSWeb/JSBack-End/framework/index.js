@@ -13,6 +13,8 @@ async function start() {
   await configDatabase();
   configRoutes(app);
 
+
+  //TODO Delete this
   app.get('/', (req, res) => {
     res.render('home');
   });

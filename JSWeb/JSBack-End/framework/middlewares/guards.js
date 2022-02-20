@@ -20,8 +20,22 @@ function isGuest() {
   };
 }
 
+function isOwner() {
+  return function(req, res, next) {
+    //may not work
+    const userId = req.session.user?._id;
+    //TODO change property name to match collection
+    if(res.locals.data.owner == userId) {
+      next()
+    } else {
+      res.redirect('/auth/login');
+    }
+  }
+}
+
 
 module.exports = {
     isGuest,
-    isUser
+    isUser,
+    isOwner
 }

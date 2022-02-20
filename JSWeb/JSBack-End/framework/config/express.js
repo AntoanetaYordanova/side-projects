@@ -17,4 +17,6 @@ module.exports = (app) => {
         cookie : {secure : 'auto'}
     }));
     app.use(express.urlencoded({extended : true}));
+    app.use(userSession());
+
 }
