@@ -1,3 +1,0 @@
-function solution() {
-    //TO DO
-}
